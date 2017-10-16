@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"features": [
+{"type":"Feature","properties":{"EXISTING_C":"Advisory Bike Lanes","EXISTING_Y":2016,"SHAPE_Leng":81.3020481175},"geometry":{"type":"LineString","coordinates":[[-75.675278,45.424107,0],[-75.674391,45.424488,0]]}},
+{"type":"Feature","properties":{"EXISTING_C":"Advisory Bike Lanes","EXISTING_Y":2016,"SHAPE_Leng":79.4040338964},"geometry":{"type":"LineString","coordinates":[[-75.673555,45.424851,0],[-75.672681,45.425213,0]]}},
+{"type":"Feature","properties":{"EXISTING_C":"Advisory Bike Lanes","EXISTING_Y":2016,"SHAPE_Leng":79.4037593499},"geometry":{"type":"LineString","coordinates":[[-75.672681,45.425213,0],[-75.671807,45.425576,0]]}},
+{"type":"Feature","properties":{"EXISTING_C":"Advisory Bike Lanes","EXISTING_Y":2016,"SHAPE_Leng":76.8510947364},"geometry":{"type":"LineString","coordinates":[[-75.674391,45.424488,0],[-75.673555,45.424851,0]]}}
+]
+}
