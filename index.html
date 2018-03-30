@@ -59,6 +59,12 @@
                 let popup = feature.properties.EXISTING_C;
                 popup += '<hr>Year: '+feature.properties.EXISTING_Y;
                 popup += '<br>Length: '+parseInt(feature.properties.SHAPE_Leng)+' m';
+                popup += '<br><a href="http://127.0.0.1:8111/load_and_zoom?'
+                popup += 'left='+(feature.geometry.coordinates[0][0]-0.002)
+                popup += '&right='+(feature.geometry.coordinates[0][0]+0.002)
+                popup += '&bottom='+(feature.geometry.coordinates[0][1]-0.001)
+                popup += '&top='+(feature.geometry.coordinates[0][1]+0.001)
+                popup += '" target="_blank">Edit in JOSM</a>';
                 layer.bindPopup(popup);
                 totals[setting.key]+=parseInt(feature.properties.SHAPE_Leng);
                 let cur = totals[setting.key]/1000;
