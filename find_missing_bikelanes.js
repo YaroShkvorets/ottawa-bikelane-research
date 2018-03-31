@@ -73,6 +73,7 @@ for (let road of roads) {
 
       if(isBikelaneCloseEnough(bikelane.geometry.coordinates, ptNext)) {
         pointsWithBikelane++;
+        break;
       }
     }
     offset+=kRoadTestStep
@@ -88,7 +89,7 @@ for (let road of roads) {
     else if(pointsTotal && pointsWithBikelane>=pointsTotal*kPointsWithBikelaneThreshold){  //kPointsWithBikelaneThreshold of points have sidewalk nearby -> good
       roadsWithMissingBikelanes.push(road);
     //  road.properties.bike = 'both'
-      console.log("Road has bikelane: ", road.properties.name)
+      console.log(road.properties.name, '- this '+road.properties.highway, "road has bikelane" )
     }
   }
 
