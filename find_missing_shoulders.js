@@ -9,9 +9,9 @@ const bikelaneTree = rbush()
 
 const roadsWithMissingBikelanes = [];
 
-const inBikelanesPath = "data/ottawaBikeLanes.json"
+const inBikelanesPath = "data/ottawaPavedShoulders.json"
 const inRoadDataPath = "data/highways.json"
-const outOsmPath = "data/roads_with_missing_bikelanes.osm"
+const outOsmPath = "data/roads_with_missing_shoulders.osm"
 
 const kOffsetFromRoadEnd = 5   //disregard kRoadTestStep meters from road end
 const kRoadTestStep = 3        //test points with kRoadTestStep meters staticBasePath
@@ -20,10 +20,10 @@ const kPointsWithBikelaneThreshold = 0.80 //kPointsWithSidewalksThreshold of roa
 const kTooShortThreshold = 40
 
 console.time('Time')
-console.log('Loading bikelanes ...')
+console.log('Loading shoulders ...')
 const bikelanes = reader(inBikelanesPath)
 bikelaneTree.load(bikelanes)
-console.log('Loaded', bikelanes.features.length,'bikelanes')
+console.log('Loaded', bikelanes.features.length,'shoulders')
 
 console.log('Loading roads ...')
 
@@ -40,7 +40,7 @@ let roads = reader(inRoadDataPath).features.filter(road => road.geometry.type=='
   road.properties.highway == "tertiary" ||
   road.properties.highway == "unclassified" ));
 
-  console.log('Loaded', roads.length,'roads')
+console.log('Loaded', roads.length,'roads')
 
 
 
@@ -90,7 +90,7 @@ for (let road of roads) {
     else if(pointsTotal && pointsWithBikelane>=pointsTotal*kPointsWithBikelaneThreshold){  //kPointsWithBikelaneThreshold of points have sidewalk nearby -> good
       roadsWithMissingBikelanes.push(road);
     //  road.properties.bike = 'both'
-      console.log(road.properties.name, '- this', road.properties.highway, "road has bikelane" )
+      console.log(road.properties.name, '- this', road.properties.highway, "road has a shoulder" )
     }
   }
 
@@ -103,7 +103,7 @@ fs.writeFile(outOsmPath, data, function(err) {
     if(err) {
         return console.log(err);
     }
-    console.log("Saved! Roads with missing bikelanes:", roadsWithMissingBikelanes.length);
+    console.log("Saved! Roads with missing paved shoulders:", roadsWithMissingBikelanes.length);
     console.timeEnd('Time')
   });
 
