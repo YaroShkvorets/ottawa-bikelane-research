@@ -1,5 +1,5 @@
 data/highways*
-data/roads_with_missing*
+data/*missing*
 
 # Logs
 logs
