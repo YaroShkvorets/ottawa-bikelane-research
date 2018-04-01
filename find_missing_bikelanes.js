@@ -32,6 +32,7 @@ let roads = reader(inRoadDataPath).features.filter(road => road.geometry.type=='
   (!road.properties.name || road.properties.name.indexOf('Transitway')==-1) &&
   (road.properties.highway == "trunk" ||
   road.properties.highway == "trunk_link" ||
+  road.properties.highway == "primary" ||
   road.properties.highway == "secondary" ||
   road.properties.highway == "secondary_link" ||
   road.properties.highway == "tertiary_link" ||   //do we need to tag links at all?
